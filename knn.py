@@ -45,8 +45,7 @@ class KNN:
                 class_count = Counter(classes)
                 for i in range(self.k):
                     class_count[self.y_train[indices[i]]] += 1
-                curr = sorted(class_count.items(),key = lambda x:x[1],reverse = True)[0][0]
-                neighbor[point] = str(curr)
+                neighbor[point] = class_count.most_common(1)[0][0]
         return neighbor
 
 
@@ -77,5 +76,3 @@ if __name__ == '__main__':
     print(pred,'\n')
     print("Confusion Matrix ", '\n', confusion_matrix(y_test, pred).T, '\n')
     print(classification_report(y_test, pred, digits=3))
-
-
