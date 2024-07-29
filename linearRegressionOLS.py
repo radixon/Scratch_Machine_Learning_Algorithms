@@ -10,16 +10,14 @@ class LinearRegressionOLS:
         self.y_train = y_train
         self.rows = X_train.shape[0]
         self.cols = X_train.shape[1]
-        self.parameters = self._parameters()
-        self.intercept_ = self.parameters[0]
-        self.coef_ = self.parameters[1:]
+        self._parameters()
     
     def predict(self,X_test):
         """
         y_hat = X * beta_hat = X * (X_transpose * X)^-1 * X_transpose * y = H * y
         where H computes the orthogonal projection
         """
-        y_pred = np.dot(X_test,self.parameters[1:]) + self.parameters[0]
+        y_pred = np.dot(X_test,self.coef_) + self.intercept_
         return y_pred
     
 
@@ -29,7 +27,8 @@ class LinearRegressionOLS:
         """
         inputs = np.concatenate((np.ones((self.rows, 1)), self.X_train), axis = 1)
         beta = np.dot(np.dot(np.linalg.inv(np.dot(np.transpose(inputs), inputs)),np.transpose(inputs)), self.y_train)
-        return beta
+        self.intercept_ = beta[0]
+        self.coef_ = beta[1:]
 
 
 if __name__ == '__main__':
