@@ -1,0 +1,20 @@
+# Environment Files
+.smla/
+smla/
+env/
+.Python/
+.env
+
+# Notebook Checkpoints
+__ipynb_checkpoints__/
+*/.ipynb_checkpoints/
+
+# Windows System Files
+.DS_Store
+Thumbs.db
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
