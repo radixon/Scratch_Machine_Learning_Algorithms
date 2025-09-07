@@ -1,5 +1,5 @@
 # Environment Files
-*.smla/
+.smla/
 smla/
 env/
 .Python/
@@ -7,7 +7,7 @@ env/
 
 # Notebook Checkpoints
 __ipynb_checkpoints__/
-*.ipynb_checkpoints/
+*/.ipynb_checkpoints/
 
 # Windows System Files
 .DS_Store
